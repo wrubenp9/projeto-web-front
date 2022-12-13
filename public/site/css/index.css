@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;/*tira a linha do A*/
+    list-style: none; /*tira as bolinha do li*/
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --azul-claro: #6362BB;
+    --azul-mais-claro: #6E6DC0;
+    --azul-escuro: #3F3E89;
+    --preto-meio-claro: #404040;
+    --cinza: #868686;
+    --branco: #ffffff;
+}
+
+.box-home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid red; */
+}
+
+.box-home-tamanho{
+    width: 100%;
+    /* max-width: 1450px; */
+    display: flex;
+    overflow: hidden;
+
+    /* border: 1px solid red; */
+
+}
+
+.home-navbar{
+    /* position: fixed; */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--azul-claro);
+
+    /* border: 1px solid red; */
+}
+
+.home-h1{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.home-h1 h1{
+
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 20px 0px;
+    color: var(--branco);
+}
+.home-nav{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column !important;
+
+    /* border: 1px solid red; */
+}
+.nav{
+    display: flex;
+    flex-direction: column !important;
+
+}
+
+.nav a{
+
+    height: 52px;
+    display: flex;
+    align-items: center;
+    margin: 5px 10px !important;
+    border-radius: 5px;
+
+    color: var(--branco) !important;
+}
+.nav a span{
+    height: 24px;
+    margin: 0px 10px;
+/* border: 1px solid red; */
+}
+.nav a img{
+    height: 24px;
+/* border: 1px solid red; */
+}
+
+.active{
+    background-color: var(--azul-mais-claro) !important;
+}
+.home-footer{
+    width: 100%;
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.footer-img{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+
+    /* border: 1px solid red; */
+}
+
+.footer-nome{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px;
+    flex-direction: column;
+    color: var(--branco);
+
+    /* border: 1px solid red; */
+}
+.span{
+    color: #ffffff42;
+}
+.footer-sair{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    /* border: 1px solid red; */
+}
+
+.home-2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 64px;
+    /* border: 1px solid black; */
+}
+
+.home-2-h1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.home-2-h1 h1{
+
+    font-size: 64px;
+    font-weight: 600;
+    color: var(--azul-claro);
+}
+.home-2-h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.home-2-h2 h2{
+
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--azul-claro);
+}
+.home-2-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-2-img img{
+    width: 750px;
+    height: 400px;
+    /* border: 1px solid red; */
+}
+.heme-2-cadastros{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0px;
+}
+
+.heme-2-cadastros span{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--preto-meio-claro);
+}
+.heme-2-cadastros a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 20px;
+    color: var(--azul-claro);
+}
+.heme-2-cadastros a img{
+    margin: 0px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

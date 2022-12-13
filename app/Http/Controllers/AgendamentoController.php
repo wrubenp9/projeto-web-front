@@ -8,8 +8,15 @@ use App\Http\Requests\UpdateAgendamentoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+
+
 class AgendamentoController extends Controller
 {
+
+    public function home(){
+
+        return view('site.index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,21 +27,22 @@ class AgendamentoController extends Controller
         //
         // dd([$request->nome,$request->limit,$request->pesquisa]);
         if($request->pesquisa){
-            $agendamento_index = Http::get('localhost:8000/api/agendamento',[
+            $agendamento_index = Http::get('http://login.developrt.com/api/login',[
 
                 'filtro' => "$request->nome:$request->pesquisa",
                 'limit' => $request->limit,
 
             ])->object();
         }else{
-            $agendamento_index = Http::get('localhost:8000/api/agendamento')->object();
+            $agendamento_index = Http::get('http://login.developrt.com/api/login')->object();
+
+
         }
+            // dd($agendamento_index);
 
-
-
-        // dd($agendamento_index);
         return view('site.agendamento',compact('agendamento_index'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -57,15 +65,17 @@ class AgendamentoController extends Controller
     {
         //
         $regras = [
-            'nome' => 'required|alpha|min:3',
-            'telefone' => 'required|numeric',
-            'data' => 'required'
+            'nome' => 'required|alpha|min:4',
+            'sobrenome' => 'required|alpha|min:4',
+            'email' => 'required|email',
+            'senha' => 'required|min:4',
         ];
         $feedback = [
             'required' => 'O campo :attribute e obrigatorio',
-            'numeric' => 'O campo :attribute so aceita Numero',
             'alpha' => 'O campo :attribute so aceita letras',
-            'min' => 'O campo :attribute aceita no minimo 3 letras'
+            'min' => 'O campo :attribute aceita no minimo 4 letras',
+            'email' => 'O campo :attribute tem que ser um Email valido',
+            'in' => 'O campo :attribute so aceita ADM OU visitante',
 
         ];
 
@@ -73,12 +83,13 @@ class AgendamentoController extends Controller
 
         // dd([$request->all()]);
 
-        $agendamento_index = Http::post('localhost:8000/api/agendamento',[
+        $agendamento_index = Http::post('http://login.developrt.com/api/login',[
 
             'nome' => $request->nome,
-            'telefone' => $request->telefone,
-            'favorito' => $request->favorito,
-            'data' => $request->data
+            'sobrenome' => $request->sobrenome,
+            'email' => $request->email,
+            'senha' => $request->senha,
+            'type' => $request->type,
         ]);
 
         return redirect()->route('agendamento.index');
@@ -105,7 +116,8 @@ class AgendamentoController extends Controller
     public function edit($id)
     {
         //
-        $agendamento_edit = Http::get('localhost:8000/api/agendamento/'.$id)->object();
+        $agendamento_edit = Http::get('http://login.developrt.com/api/login/'.$id)->object();
+
 
         // dd([$agendamento_edit]);
         return view('site.agendamento-edit', compact('agendamento_edit'));
@@ -120,21 +132,18 @@ class AgendamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        // dd([$request->all()]);
 
-        $agendamento_update = Http::post('localhost:8000/api/agendamento/'.$id,[
+
+        $agendamento_update = Http::post('http://login.developrt.com/api/login/'.$id,[
 
             'nome' => $request->nome,
-            'telefone' => $request->telefone,
-            'favorito' => $request->favorito,
-            'data' => $request->data,
+            'sobrenome' => $request->sobrenome,
+            'email' => $request->email,
+            'senha' => $request->senha,
+            'type' => $request->type,
             '_method' => $request->_method
 
         ]);
-
-
-
 
         return redirect()->route('agendamento.index');
     }
@@ -147,10 +156,8 @@ class AgendamentoController extends Controller
      */
     public function destroy($id)
     {
-        //
-        // dd($id);
 
-        $agendamento_update = Http::delete('localhost:8000/api/agendamento/'.$id);
+        $agendamento_update = Http::delete('http://login.developrt.com/api/login/'.$id);
 
         return redirect()->route('agendamento.index');
     }

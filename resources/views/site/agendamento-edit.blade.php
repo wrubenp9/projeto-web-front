@@ -16,48 +16,41 @@
 </head>
 
 <body>
-    <header>
-        <div class="header">
-            <div class="header-tamanho">
-                <div class="header-logo">
-                    <div class="header-logo-img">
-                        <img src="{{ asset('site/img/logo.jfif') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <main>
         <div class="create">
-            
+
             <div class="create-tamanho">
                 <div class="create-form">
                     <form action="{{route('agendamento.update',['agendamento' => $agendamento_edit->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
-                        <label for="">Nome: <input type="text" name="nome" value="{{$agendamento_edit->nome ?? old('nome')}}" placeholder="Digite seu nome">
+                        <label for="">Nome <input type="text" name="nome" value="{{$agendamento_edit->nome ?? old('nome')}}" placeholder="Digite seu nome">
                             <div class="error" style="color: red;">
                                 {{$errors->has('nome') ? $errors->first('nome') : ''}}
                             </div>
                         </label>
-                        <label for="">Telefone: <input type="text" name="telefone" value="{{$agendamento_edit->telefone ?? old('telefone')}}" placeholder="Digite seu telefone">
+                        <label for="">Sobrenome <input type="text" name="sobrenome" value="{{$agendamento_edit->sobrenome ?? old('sobrenome')}}" placeholder="Digite seu sobrenome">
                             <div class="error" style="color: red;">
-                                {{$errors->has('telefone') ? $errors->first('telefone') : ''}}
+                                {{$errors->has('sobrenome') ? $errors->first('sobrenome') : ''}}
+                            </div>
+                        </label>
+                        <label for="">E-mail <input type="text" name="email" value="{{$agendamento_edit->email ?? old('email')}}" placeholder="Digite seu email" {{(@$agendamento_edit->type == 'visitante') ? 'disabled' : ''}}>
+                            <div class="error" style="color: red;">
+                                {{$errors->has('email') ? $errors->first('email') : ''}}
+                            </div>
+                        </label>
+                        <label for="">Senha <input type="text" name="senha" value="{{$agendamento_edit->senha ?? old('senha')}}" placeholder="Digite seu senha">
+                            <div class="error" style="color: red;">
+                                {{$errors->has('senha') ? $errors->first('senha') : ''}}
                             </div>
                         </label>
                         <div class="create-2label">
-                            <label for="">Favorito:
-                                <select name="favorito" id="">
-                                    <option value="sim" {{ @$agendamento_edit->favorito == 'sim' ? 'selected' : ''}}>SIM</option>
-                                    <option value="nao" {{ @$agendamento_edit->favorito == 'nao' ? 'selected' : ''}}>NÃO</option>
+                            <label for="">Tipo
+                                <select name="type" id="" {{(@$agendamento_edit->type == 'visitante') ? 'disabled' : ''}}>
+                                    <option value="adm" {{ @$agendamento_edit->type == 'adm' ? 'selected' : ''}}>ADM</option>
+                                    <option value="visitante" {{ @$agendamento_edit->type == 'visitante' ? 'selected' : ''}}>VISITANTE</option>
                                 </select>
-                            </label>
-                            <label for="">Data e Hora: <input type="datetime-local" name="data" value="{{@$agendamento_edit->data ?? old('data')}}" id="">
-                                <div class="error" style="color: red;">
-                                    {{$errors->has('data') ? $errors->first('data') : ''}}
-                                </div>
                             </label>
                         </div>
                         <div class="create-button">

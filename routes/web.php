@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',[AgendamentoController::class, 'index'])->name('index');
+Route::get('/',[AgendamentoController::class, 'home'])->name('home');
 
 Route::resource('agendamento', AgendamentoController::class);

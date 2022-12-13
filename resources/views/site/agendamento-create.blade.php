@@ -11,51 +11,64 @@
     <link rel="stylesheet" href=" {{ asset('site/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href=" {{ asset('site/bootstrap/css/bootstrap.css') }}">
 
-    <title>Agendamento</title>
+    <title>Novo usuário</title>
 
 </head>
 
 <body>
-    <header>
-        <div class="header">
-            <div class="header-tamanho">
-                <div class="header-logo">
-                    <div class="header-logo-img">
-                        <img src="{{ asset('site/img/logo.jfif') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <main>
         <div class="create">
             <div class="create-tamanho">
                 <div class="create-form">
                     <form action="{{route('agendamento.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <label for="">Nome: <input type="text" name="nome" value="{{old('nome')}}" placeholder="Digite seu nome">
+                        <label for="">Nome <input type="text" name="nome" value="{{old('nome')}}" placeholder="Digite seu nome">
                             <div class="error" style="color: red;">
                                 {{$errors->has('nome') ? $errors->first('nome') : ''}}
                             </div>
                         </label>
-                        <label for="">Telefone: <input type="text" name="telefone" value="{{old('telefone')}}" placeholder="Digite seu telefone">
+                        <label for="">Sobrenome <input type="text" name="sobrenome" value="{{old('sobrenome')}}" placeholder="Digite seu sobrenome">
+                            <div class="error" style="color: red;">
+                                {{$errors->has('sobrenome') ? $errors->first('sobrenome') : ''}}
+                            </div>
+                        </label>
+                        <label for="">E-mail <input type="text" name="email" value="{{old('email')}}" placeholder="Digite seu email">
+                            <div class="error" style="color: red;">
+                                {{$errors->has('email') ? $errors->first('email') : ''}}
+                            </div>
+                        </label>
+                        <label for="">Senha <input type="password" name="senha" value="{{old('senha')}}" placeholder="Digite seu senha">
+                            <div class="error" style="color: red;">
+                                {{$errors->has('senha') ? $errors->first('senha') : ''}}
+                            </div>
+                        </label>
+
+                        {{-- <label for="">Telefone <input type="text" name="telefone" value="{{old('telefone')}}" placeholder="Digite seu telefone">
                             <div class="error" style="color: red;">
                                 {{$errors->has('telefone') ? $errors->first('telefone') : ''}}
                             </div>
-                        </label>
+                        </label> --}}
+
                         <div class="create-2label">
-                            <label for="">Favorito:
+                            <label for="">Tipo
+                                <select name="type" id="" value="{{old('type')}}">
+                                    <option value="adm">Adm</option>
+                                    <option value="visitante">visitante</option>
+                                </select>
+                            </label>
+
+
+                            {{-- <label for="">Favorito
                                 <select name="favorito" id="" value="{{old('favorito')}}">
                                     <option value="sim">SIM</option>
                                     <option value="nao">NÃO</option>
                                 </select>
-                            </label>
-                            <label for="">Data e Hora: <input type="datetime-local" name="data" value="{{old('data')}}" id="">
+                            </label> --}}
+                            {{-- <label for="">Data e Hora <input type="datetime-local" name="data" value="{{old('data')}}" id="">
                                 <div class="error" style="color: red;">
                                     {{$errors->has('data') ? $errors->first('data') : ''}}
                                 </div>
-                            </label>
+                            </label> --}}
                         </div>
                         <div class="create-button">
                             <a href="{{route('agendamento.index')}}">Voltar</a>
